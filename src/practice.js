@@ -24,10 +24,10 @@ const asteroid =[
    
 ]
  const names = asteroid.map(asteroid => asteroid.name);
- const Hazardous = asteroid.map( asteroid =>asteroid.hazardous  === true);
- const Diameter = asteroid.map( asteroid => asteroid.diameter);
  console.log(names);
+ const Hazardous = asteroid.filter( asteroid =>asteroid.hazardous  === true);
  console.log(Hazardous);
+ const Diameter = asteroid.slice(0,2);
  console.log(Diameter);
  
  
