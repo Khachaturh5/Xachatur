@@ -1,4 +1,5 @@
 import './App.css'
+import{useState,useEffect} from "react"
 const date = "May 20"
 export default function App() {
   return(
@@ -7,6 +8,8 @@ export default function App() {
      <Date latitude="42.06" />
     <Nov logitut="11111"/>
     <Name />
+    <Counter />
+    <ISSTracker2 />
 <Age />
 </div>
   )
@@ -41,4 +44,39 @@ function Nov(promp) {
       {promp.logitut}
     </h1>
   </div>
+}
+function Counter() {
+  const [count, setCount]= useState(0);
+
+  return (
+    <button onClick={() => setCount(count +1)}>
+ Cliced{count} times
+    </button>
+  )
+}
+function ISSTracker1() {
+  useEffect(() => {
+    console.log("component loaded");
+  }, [])
+  return <div className='card'><h2>ISS  Position</h2></div>
+}
+function ISSTracker2(){
+  const [location,setLocation] = useState(null)
+
+  useEffect (() => {
+    fetch("https://api.wheretheiss.at/v1/satellites/25544")
+    .then(r =>r.json())
+    .then(data => setLocation(data))
+  }, [])
+
+  return (
+    <div className='card'>
+<h2>ISS Position</h2>
+{location ? (
+  <p>{location.latitude.toFixed(2)}, {location.longitude.toFixed(2)}</p>
+) : (
+  <p>Loadig...</p>
+)}
+    </div>
+  )
 }
