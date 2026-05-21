@@ -1,20 +1,21 @@
+import './App.css'
 const date = "May 20"
 export default function App() {
   return(
-    <div className="Xachatur">
+    <div className="dashboard">
       <h1>Xacho</h1>
-     <Date />
-    
+     <Date latitude="42.06" />
+    <Nov logitut="11111"/>
     <Name />
 <Age />
 </div>
   )
 }
-function Date() {
+function Date(promp) {
   return(
     
     <div>
- <p>{date}</p>
+ <p>{promp.latitude}</p>
     </div>
   )
 }
@@ -33,4 +34,11 @@ function Age() {
       <h1>22</h1>
     </div>
   )
+}
+function Nov(promp) {
+  <div>
+    <h1>
+      {promp.logitut}
+    </h1>
+  </div>
 }
