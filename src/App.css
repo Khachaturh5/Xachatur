@@ -1,56 +1,888 @@
-
 body {
-  background: #000000;
+  background-color: #000;
+
+  /* աստղերի նկար */
+  background-image:
+    url("https://www.transparenttextures.com/patterns/stardust.png");
+
   color: white;
+
   font-family: monospace;
+
   margin: 0;
+
   padding: 20px;
 }
 
-.dashboard h1 {
-  font-size: 2rem;
-  color: #4ade80;
-  margin-bottom: 20px;
-  letter-spacing: 0.1em;
+/* MAIN */
+.dashboard {
+  max-width: 1500px;
+  margin: auto;
+  padding-center: 320px;
 }
 
+/* TITLE */
+.dashboard h1 {
+  color: #61ff4f;
+  font-size: 3rem;
+  margin-bottom: 30px;
+  letter-spacing: 3px;
+}
+
+/* GRID */
 .grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 16px;
+  grid-template-columns: 2fr 1.2fr 1fr;
+  gap: 20px;
 }
 
+/* CARD */
 .card {
-  background: #141414;
-  border: 1px #222;
-  border-radius: 8px;
-  padding: 16px;
+  background: linear-gradient(
+    145deg,
+    #070707,
+    #101010
+  );
+
+  border: 1px solid #1f1f1f;
+
+  border-radius: 22px;
+
+  padding: 20px;
+
+  box-shadow:
+    0 0 10px rgba(97,255,79,0.15),
+    0 0 40px rgba(97,255,79,0.05);
+
+  transition: 0.3s;
 }
 
+.card:hover {
+  transform: translateY(-5px);
+
+  box-shadow:
+    0 0 20px rgba(97,255,79,0.5),
+    0 0 60px rgba(97,255,79,0.2);
+}
+
+/* CARD TITLE */
 .card h2 {
-  color: #4ade80;
-  font-size: 0.85rem;
-  letter-spacing: 0.12em;
+  color: #61ff4f;
+  font-size: 1rem;
+  margin-bottom: 20px;
   text-transform: uppercase;
-  margin-bottom: 12px;
+  letter-spacing: 2px;
 }
 
+/* TEXT */
 .card p {
-  font-size: 1.4rem;
-  font-weight: 600;
+  color: #ddd;
+  font-size: 1.05rem;
+  margin: 10px 0;
 }
 
-.label {
-  font-size: 0.75rem;
-  color: #666;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-}
-
+/* LIVE */
 .live {
-  color: #4ade80;
+  color: #61ff4f;
 }
 
+/* WARNING */
 .warning {
-  color: #ef4444;
+  color: #ff4f4f;
+}
+
+/* IMAGE */
+.card img {
+  width: 100%;
+  border-radius: 20px;
+  margin-top: 15px;
+}
+
+/* BUTTON */
+button {
+  background: transparent;
+  border: 1px solid #61ff4f;
+  color: #61ff4f;
+
+  padding: 14px 25px;
+
+  border-radius: 14px;
+
+  cursor: pointer;
+
+  font-weight: bold;
+
+  transition: 0.3s;
+}
+
+button:hover {
+  background: #61ff4f;
+  color: black;
+}
+
+/* ASTRONAUT CARD */
+.astro-card {
+  background: #0c0c0c;
+
+  border: 1px solid #222;
+
+  border-radius: 18px;
+
+  padding: 15px;
+
+  text-align: center;
+
+  transition: 0.3s;
+}
+
+.astro-card:hover {
+  border-color: #61ff4f;
+
+  box-shadow: 0 0 20px rgba(97,255,79,0.4);
+}
+
+/* SIDEBAR */
+.theme-panel {
+  position: fixed;
+
+  left: 20px;
+  top: 20px;
+
+  width: 260px;
+
+  background: #070707;
+
+  border: 1px solid #1f1f1f;
+
+  border-radius: 24px;
+
+  padding: 20px;
+
+  height: calc(100vh - 40px);
+
+  overflow-y: auto;
+}
+
+/* SIDEBAR TITLE */
+.theme-panel h3 {
+  color: white;
+  margin-bottom: 25px;
+}
+
+/* LABEL */
+.theme-panel label {
+  display: block;
+
+  color: #999;
+
+  margin-top: 20px;
+
+  margin-bottom: 8px;
+
+  font-size: 0.9rem;
+}
+
+/* INPUTS */
+.theme-panel input,
+.theme-panel select {
+  width: 100%;
+
+  padding: 10px;
+
+  background: #101010;
+
+  border: 1px solid #222;
+
+  border-radius: 12px;
+
+  color: white;
+}
+
+/* COLOR ROW */
+.colors {
+  display: flex;
+  gap: 12px;
+  margin-top: 15px;
+}
+
+.color {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 2px solid transparent;
+}
+
+.color:hover {
+  border-color: white;
+}
+
+/* SLIDER */
+.slider {
+  width: 100%;
+  margin-top: 15px;
+}
+
+/* TOGGLE */
+.toggle {
+  width: 50px;
+  height: 28px;
+  background: #222;
+  border-radius: 50px;
+  position: relative;
+  cursor: pointer;
+}
+
+.toggle::after {
+  content: "";
+
+  width: 22px;
+  height: 22px;
+
+  background: #61ff4f;
+
+  border-radius: 50%;
+
+  position: absolute;
+
+  top: 3px;
+  left: 3px;
+
+  transition: 0.3s;
+}
+
+/* LINKS */
+a {
+  color: #61ff4f;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* IFRAME */
+iframe {
+  width: 100%;
+  height: 650px;
+  border: none;
+  border-radius: 22px;
+}
+
+/* MOBILE */
+@media (max-width: 1200px) {
+
+  .dashboard {
+    padding-left: 0;
+  }
+
+  .theme-panel {
+    position: relative;
+    width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+/* ASTEROIDS CARD */
+.asteroids {
+
+  grid-column: span 2;
+
+  background:
+    linear-gradient(
+      145deg,
+      #050505,
+      #111
+    );
+
+  border: 1px solid #1f1f1f;
+
+  border-radius: 30px;
+
+  padding: 25px;
+
+  box-shadow:
+    0 0 20px rgba(97,255,79,0.15),
+    0 0 60px rgba(97,255,79,0.05);
+
+  transition: 0.3s;
+}
+
+.asteroids:hover {
+
+  box-shadow:
+    0 0 30px rgba(97,255,79,0.5),
+    0 0 80px rgba(97,255,79,0.15);
+}
+
+/* HEADER */
+.asteroid-header {
+
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  margin-bottom: 20px;
+}
+
+/* TITLE */
+.asteroids h2 {
+
+  color: #61ff4f;
+
+  font-size: 1.2rem;
+
+  letter-spacing: 3px;
+
+  text-transform: uppercase;
+}
+
+/* LINK */
+.asteroids a {
+
+  color: #61ff4f;
+
+  text-decoration: none;
+
+  font-weight: bold;
+}
+
+.asteroids a:hover {
+  text-decoration: underline;
+}
+
+/* LIST */
+.asteroid-list {
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 15px;
+}
+
+/* ITEM */
+.asteroid-item {
+
+  background: #0c0c0c;
+
+  border: 1px solid #222;
+
+  border-radius: 20px;
+
+  padding: 18px;
+
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  transition: 0.3s;
+}
+
+.asteroid-item:hover {
+
+  border-color: #61ff4f;
+
+  box-shadow:
+    0 0 20px rgba(97,255,79,0.3);
+}
+
+/* NAME */
+.asteroid-item h3 {
+
+  color: white;
+
+  margin-bottom: 10px;
+}
+
+/* TEXT */
+.asteroid-item p {
+
+  color: #bbb;
+}
+
+/* SAFE */
+.live {
+  color: #61ff4f;
+}
+
+/* WARNING */
+.warning {
+  color: #ff4f4f;
+}
+.solar-system {
+  grid-column: span 3;
+  /* ամբողջ լայնությունը */
+}
+
+/* iframe */
+.solar-system iframe {
+  width: 100%;
+
+  height: 700px;
+
+  border: none;
+
+  border-radius: 20px;
+}
+/* MAIN CARD */
+.space-card {
+  background:
+    linear-gradient(
+      145deg,
+      #050505,
+      #111
+    );
+
+  border: 1px solid #1f1f1f;
+
+  border-radius: 28px;
+
+  padding: 24px;
+
+  box-shadow:
+    0 0 20px rgba(97,255,79,0.12),
+    0 0 60px rgba(97,255,79,0.04);
+
+  transition: 0.3s;
+}
+
+.space-card:hover {
+  box-shadow:
+    0 0 25px rgba(97,255,79,0.35),
+    0 0 80px rgba(97,255,79,0.12);
+}
+
+/* HEADER */
+.card-header {
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  margin-bottom: 25px;
+}
+
+/* TITLE */
+.header-title {
+  display: flex;
+
+  align-items: center;
+
+  gap: 12px;
+
+  color: #61ff4f;
+
+  font-size: 1rem;
+
+  letter-spacing: 3px;
+
+  font-weight: bold;
+}
+
+/* ICON */
+.card-icon {
+  width: 24px;
+
+  height: 24px;
+
+  color: #61ff4f;
+}
+
+/* ASTEROID LIST */
+.asteroid-list {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 15px;
+}
+
+/* ROW */
+.asteroid-row {
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  background: #0c0c0c;
+
+  border: 1px solid #222;
+
+  border-radius: 18px;
+
+  padding: 18px;
+
+  transition: 0.3s;
+}
+
+.asteroid-row:hover {
+  transform: translateY(-3px);
+
+  border-color: #61ff4f;
+
+  box-shadow:
+    0 0 20px rgba(97,255,79,0.25);
+}
+
+/* INFO */
+.asteroid-info {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 8px;
+}
+
+/* NAME */
+.asteroid-name {
+  color: white;
+
+  font-size: 1rem;
+
+  font-weight: bold;
+}
+
+/* SIZE */
+.asteroid-size {
+  color: #aaa;
+
+  font-size: 0.9rem;
+}
+
+/* BADGE */
+.hazard-badge {
+  padding: 10px 16px;
+
+  border-radius: 999px;
+
+  font-size: 0.85rem;
+
+  font-weight: bold;
+
+  text-transform: uppercase;
+}
+
+/* SAFE */
+.safe {
+  background: rgba(97,255,79,0.15);
+
+  color: #61ff4f;
+
+  border: 1px solid rgba(97,255,79,0.4);
+}
+
+/* DANGER */
+.danger {
+  background: rgba(255,79,79,0.15);
+
+  color: #ff4f4f;
+
+  border: 1px solid rgba(255,79,79,0.4);
+}
+
+/* LOADING */
+.shimmer-loader {
+  color: #888;
+
+  padding: 20px;
+
+  text-align: center;
+
+  animation: pulse 1.5s infinite;
+}
+
+/* ANIMATION */
+@keyframes pulse {
+
+  0% {
+    opacity: 0.4;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0.4;
+  }
+}
+/* ISS CARD */
+.iss-card {
+
+  background:
+    linear-gradient(
+      145deg,
+      #050505,
+      #101010
+    );
+
+  border: 1px solid #1f1f1f;
+
+  border-radius: 30px;
+
+  padding: 25px;
+
+  box-shadow:
+    0 0 20px rgba(97,255,79,0.15),
+    0 0 60px rgba(97,255,79,0.05);
+
+  transition: 0.3s;
+}
+
+.iss-card:hover {
+
+  box-shadow:
+    0 0 30px rgba(97,255,79,0.4),
+    0 0 80px rgba(97,255,79,0.12);
+
+  transform: translateY(-5px);
+}
+
+/* HEADER */
+.iss-header {
+
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  margin-bottom: 25px;
+}
+
+/* TITLE */
+.iss-title {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 12px;
+
+  color: #61ff4f;
+
+  letter-spacing: 3px;
+
+  font-weight: bold;
+
+  font-size: 1rem;
+}
+
+/* ICON */
+.iss-icon {
+
+  width: 28px;
+
+  height: 28px;
+}
+
+/* GRID */
+.iss-grid {
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, 1fr);
+
+  gap: 20px;
+}
+
+/* ITEM */
+.iss-item {
+
+  background: #0c0c0c;
+
+  border: 1px solid #222;
+
+  border-radius: 20px;
+
+  padding: 20px;
+
+  text-align: center;
+
+  transition: 0.3s;
+}
+
+.iss-item:hover {
+
+  border-color: #61ff4f;
+
+  box-shadow:
+    0 0 20px rgba(97,255,79,0.25);
+}
+
+/* LABEL */
+.iss-label {
+
+  color: #888;
+
+  font-size: 0.85rem;
+
+  letter-spacing: 2px;
+
+  margin-bottom: 10px;
+
+  text-transform: uppercase;
+}
+
+/* VALUE */
+.iss-value {
+
+  color: white;
+
+  font-size: 1.4rem;
+
+  font-weight: bold;
+}
+
+/* LIVE */
+.live {
+
+  color: #ffffff;
+}
+
+/* LOADING */
+.iss-loading {
+
+  text-align: center;
+
+  color: #888;
+
+  padding: 30px;
+
+  animation: pulse 1.5s infinite;
+}
+
+/* ANIMATION */
+@keyframes pulse {
+
+  0% {
+    opacity: 0.4;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0.4;
+  }
+} 
+.asteroid-popup-overlay {
+  position: fixed;
+
+  inset: 0;
+
+  background: rgba(0, 0, 0, 0.75);
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  z-index: 999;
+
+  backdrop-filter: blur(6px);
+}
+
+.asteroid-popup {
+
+  width: 420px;
+
+  max-width: 90%;
+
+  background: #111827;
+
+  border: 1px solid rgba(74, 222, 128, 0.25);
+
+  border-radius: 22px;
+
+  overflow: hidden;
+
+  box-shadow:
+    0 0 40px rgba(74, 222, 128, 0.15);
+
+  animation: popup 0.25s ease;
+}
+
+.asteroid-popup img {
+
+  width: 100%;
+
+  height: 240px;
+
+  object-fit: cover;
+}
+
+.asteroid-popup h2 {
+
+  color: #4ade80;
+
+  padding: 18px 20px 8px;
+
+  margin: 0;
+}
+
+.asteroid-popup p {
+
+  padding: 0 20px;
+
+  color: #d1d5db;
+
+  margin-bottom: 15px;
+}
+
+.asteroid-popup button {
+
+  margin: 0 20px 20px;
+
+  padding: 12px 18px;
+
+  border: none;
+
+  border-radius: 12px;
+
+  background: #4ade80;
+
+  color: black;
+
+  font-weight: bold;
+
+  cursor: pointer;
+
+  transition: 0.3s;
+}
+
+.asteroid-popup button:hover {
+
+  transform: scale(1.05);
+}
+
+@keyframes popup {
+
+  from {
+
+    transform: scale(0.85);
+
+    opacity: 0;
+  }
+
+  to {
+
+    transform: scale(1);
+
+    opacity: 1;
+  }
 }
