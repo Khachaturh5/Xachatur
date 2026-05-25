@@ -1,50 +1,154 @@
 import './App.css'
 import { useState, useEffect } from "react"
 
-
 export default function App() {
+
+  const [page, setPage] = useState("home")
+
   return (
-    <div className="dashboard">
 
-      <h1>Xacho   NASA Dashboard</h1>
+    <div>
 
- 
+      {/* NAVBAR */}
 
-      <Counter />
+      <nav className="navbar">
 
-      <ISSTracker2 />
-      <PeopleInSpace />
-      <APOD />
-     <Asteroids />
-       <AsteroidsCarte/>
-      
-<div className="card solar-system">
-  <h2> Solar System Explorer</h2>
+        <div className="logo">
+          NASA
+        </div>
 
-  <iframe
-    src="https://eyes.nasa.gov/apps/solar-system/#/home"
-    title="NASA Solar System"
-  />
-</div>
-   
-    
+        <div className="nav-links">
+
+          <button onClick={() => setPage("home")}>
+            Home
+          </button>
+
+          <button onClick={() => setPage("iss")}>
+            ISS Station
+          </button>
+
+          <button onClick={() => setPage("astronauts")}>
+            Astronauts
+          </button>
+
+          <button onClick={() => setPage("solar")}>
+            Solar System
+          </button>
+
+        </div>
+
+      </nav>
+
+      <div className="dashboard">
+
+        {/* HOME */}
+
+        {page === "home" && (
+
+          <section className="page-section">
+
+            <h1 className="main-title">
+              NASA SPACE CENTER
+            </h1>
+
+            <p className="main-text">
+              Explore astronauts, asteroids,
+              the ISS station and the Solar System.
+            </p>
+
+            <div className="grid">
+
+              <APOD />
+
+              <ISSTracker2 />
+
+              <Asteroids />
+
+            </div>
+
+          </section>
+
+        )}
+
+        {/* ISS */}
+
+        {page === "iss" && (
+
+          <section className="page-section">
+
+            <h1 className="main-title">
+              ISS STATION
+            </h1>
+
+            <ISSTracker2 />
+
+          </section>
+
+        )}
+
+        {/* ASTRONAUTS */}
+
+        {page === "astronauts" && (
+
+          <section className="page-section">
+
+            <h1 className="main-title">
+              ASTRONAUTS
+            </h1>
+
+            <PeopleInSpace22 />
+
+          </section>
+
+        )}
+
+        {/* SOLAR */}
+
+        {page === "solar" && (
+
+          <section className="page-section">
+
+            <h1 className="main-title">
+              SOLAR SYSTEM
+            </h1>
+
+            <div className="grid">
+
+              <Asteroids />
+
+              <AsteroidsCarte />
+
+            </div>
+
+            <div className="card solar-system">
+
+              <h2>
+                Solar System Explorer
+              </h2>
+
+              <iframe
+                src="https://eyes.nasa.gov/apps/solar-system/#/home"
+                title="NASA Solar System"
+              />
+
+            </div>
+
+          </section>
+
+        )}
+
+      </div>
+
     </div>
+
   )
+
 }
 
+/* ========================= */
+/* ISS */
+/* ========================= */
 
-
-
-
-function Counter() {
-  const [count, setCount] = useState(0)
-
-  return (
-    <button onClick={() => setCount(count + 1)}>
-      Clicked {count} times
-    </button>
-  )
-}
 function ISSTracker2() {
 
   const [location, setLocation] =
@@ -53,17 +157,22 @@ function ISSTracker2() {
   useEffect(() => {
 
     const fetchISS = () => {
-      fetch('https://api.wheretheiss.at/v1/satellites/25544')
-      .then(r => {
-        if (!r.ok) throw new Error("Rate limited");
-        return r.json();
-      })
+
+      fetch(
+        'https://api.wheretheiss.at/v1/satellites/25544'
+      )
+        .then(r => r.json())
         .then(data => setLocation(data))
-        .catch(err => console.warn(err));
+
     }
 
-    const interval = setInterval(fetchISS, 10000)
-    return () => clearInterval(interval)
+    fetchISS()
+
+    const interval =
+      setInterval(fetchISS, 10000)
+
+    return () =>
+      clearInterval(interval)
 
   }, [])
 
@@ -74,21 +183,7 @@ function ISSTracker2() {
       <div className="iss-header">
 
         <div className="iss-title">
-
-          <svg
-            className="iss-icon"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-          >
-            <path d="M2 12h20" />
-            <path d="M12 2v20" />
-            <circle cx="12" cy="12" r="3" />
-          </svg>
-
-          <span>ISS LIVE TRACKER</span>
-
+          ISS LIVE TRACKER
         </div>
 
       </div>
@@ -127,9 +222,9 @@ function ISSTracker2() {
               Speed
             </div>
 
-            <div className="iss-value live">
+            <div className="iss-value">
               {location.velocity.toFixed(0)}
-              {" "}km/h
+              km/h
             </div>
 
           </div>
@@ -142,7 +237,7 @@ function ISSTracker2() {
 
             <div className="iss-value">
               {location.altitude.toFixed(0)}
-              {" "}km
+              km
             </div>
 
           </div>
@@ -151,50 +246,84 @@ function ISSTracker2() {
 
       ) : (
 
-        <div className="iss-loading">
-          Connecting to ISS...
-        </div>
+        <p>Loading...</p>
 
       )}
 
     </div>
 
   )
+
 }
-function PeopleInSpace() {
-  const [people, setPeople] = useState(null)
+
+/* ========================= */
+/* APOD */
+/* ========================= */
+
+function APOD() {
+
+  const [pic, setPic] =
+    useState(null)
 
   useEffect(() => {
-    fetch('http://api.open-notify.org/astros.json')
+
+    fetch(
+      `https://api.nasa.gov/planetary/apod?api_key=${import.meta.env.VITE_NASA_KEY}`
+    )
       .then(r => r.json())
-      .then(data => setPeople(data.people))
+      .then(data => setPic(data))
+
   }, [])
 
   return (
+
     <div className="card">
-      <h2>People in Space</h2>
-      {people ? (
-        <ul>
-          {people.map(person => (
-            <li key={person.name}>
-              {person.name} - {person.craft}
-            </li>
-          ))}
-        </ul>
-      ) : <p>Loading...</p>}
+
+      <h2>Picture of the Day</h2>
+
+      {pic ? (
+
+        <div>
+
+          <h3>{pic.title}</h3>
+
+          <img
+            src={pic.url}
+            alt={pic.title}
+          />
+
+        </div>
+
+      ) : (
+
+        <p>Loading...</p>
+
+      )}
+
     </div>
+
   )
+
 }
+
+/* ========================= */
+/* ASTEROIDS */
+/* ========================= */
+
+
+/* ========================= */
+/* SOLAR */
+/* ========================= */
+
 function AsteroidsCarte() {
+
   return (
 
     <div className="card asteroids">
 
-      <div className="asteroid-header">
-
-        <h2>         Asteroids Explorer</h2>
-
-      </div>
+      <h2>
+        Asteroids Explorer
+      </h2>
 
       <iframe
         src="https://eyes.nasa.gov/apps/asteroids/#/home"
@@ -204,29 +333,9 @@ function AsteroidsCarte() {
     </div>
 
   )
+
 }
-function APOD() {
-  const [pic, setPic] = useState(null)
-  useEffect(() => {
-    fetch(`https://api.nasa.gov/planetary/apod?api_key=${import.meta.env.VITE_NASA_KEY}`)
-      .then(r => r.json())
-      .then(data => setPic(data))
-  }, [])
-  return (
-    <div className="card">
-      <h2>Picture of the Day</h2>
-      {pic ? (
-        <div>
-          <h3>{pic.title}</h3>
-          {pic.media_type === 'image'
-            ? <img src={pic.url} alt={pic.title} style={{ width: '100%' }} />
-            : <a href={pic.url} target="_blank">Watch video</a>
-          }
-        </div>
-      ) : <p>Loading...</p>}
-    </div>
-  )
-}
+
 function Asteroids() {
 
   const [rocks, setRocks] =
@@ -419,4 +528,188 @@ function Asteroids() {
     </div>
 
   )
+}
+function PeopleInSpace22() {
+
+  const [people, setPeople] =
+    useState([])
+
+  const [selectedPerson, setSelectedPerson] =
+    useState(null)
+
+  const [bio, setBio] =
+    useState("")
+
+  const [loadingBio, setLoadingBio] =
+    useState(false)
+
+  useEffect(() => {
+
+    fetch(
+      "https://api.allorigins.win/raw?url=http://api.open-notify.org/astros.json"
+    )
+      .then(r => r.json())
+      .then(data =>
+        setPeople(data.people)
+      )
+      .catch(err =>
+        console.log(err)
+      )
+
+  }, [])
+
+  useEffect(() => {
+
+    if (!selectedPerson) return
+
+    setLoadingBio(true)
+
+    const wikiName =
+      encodeURIComponent(
+        selectedPerson.name
+      )
+
+    fetch(
+      `https://en.wikipedia.org/api/rest_v1/page/summary/${wikiName}`
+    )
+      .then(r => r.json())
+      .then(data => {
+
+        setBio(
+          data.extract ||
+          "No biography found."
+        )
+
+        setLoadingBio(false)
+
+      })
+      .catch(() => {
+
+        setBio(
+          "Error loading biography."
+        )
+
+        setLoadingBio(false)
+
+      })
+
+  }, [selectedPerson])
+
+  return (
+
+    <>
+
+      <div className="astronaut-grid">
+
+        {people.map(person => (
+
+          <div
+            key={person.name}
+            className="astronaut-card"
+          >
+
+            <div className="astronaut-avatar">
+              🧑‍🚀
+            </div>
+
+            <h2>
+              {person.name}
+            </h2>
+
+            <p>
+              {person.craft}
+            </p>
+
+            <button
+              className="astro-btn"
+              onClick={() =>
+                setSelectedPerson(person)
+              }
+            >
+              More Info
+            </button>
+
+          </div>
+
+        ))}
+
+      </div>
+
+      {selectedPerson && (
+
+        <div
+          className="astro-screen"
+          onClick={() =>
+            setSelectedPerson(null)
+          }
+        >
+
+          <div
+            className="astro-screen-card"
+            onClick={(e) =>
+              e.stopPropagation()
+            }
+          >
+
+            <button
+              className="close-btn"
+              onClick={() =>
+                setSelectedPerson(null)
+              }
+            >
+              ✕
+            </button>
+
+            <div className="screen-avatar">
+              🧑‍🚀
+            </div>
+
+            <h1>
+              {selectedPerson.name}
+            </h1>
+
+            <div className="screen-box">
+
+              <span>
+                Spacecraft
+              </span>
+
+              <strong>
+                {selectedPerson.craft}
+              </strong>
+
+            </div>
+
+            <div className="screen-bio">
+
+              <h3>
+                Biography
+              </h3>
+
+              {loadingBio ? (
+
+                <p>
+                  Loading biography...
+                </p>
+
+              ) : (
+
+                <p>
+                  {bio}
+                </p>
+
+              )}
+
+            </div>
+
+          </div>
+
+        </div>
+
+      )}
+
+    </>
+
+  )
+
 }
