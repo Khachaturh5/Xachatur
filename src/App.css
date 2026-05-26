@@ -1572,3 +1572,1234 @@ iframe {
   }
 
 }
+.iss-stats{
+  display: grid;
+
+  grid-template-columns:
+    repeat(auto-fit, minmax(220px,1fr));
+
+  gap: 18px;
+
+  margin-top: 35px;
+}
+
+.iss-stat{
+  background:
+    linear-gradient(
+      145deg,
+      rgba(17,24,39,.95),
+      rgba(30,41,59,.95)
+    );
+
+  border:
+    1px solid rgba(59,130,246,.35);
+
+  border-radius: 22px;
+
+  padding: 24px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 12px;
+
+  transition: .35s;
+
+  box-shadow:
+    0 0 25px rgba(37,99,235,.12);
+}
+
+.iss-stat:hover{
+  transform:
+    translateY(-6px);
+
+  border-color:
+    #60a5fa;
+
+  box-shadow:
+    0 0 35px rgba(96,165,250,.35);
+}
+
+.stat-title{
+  color: #60a5fa;
+
+  font-size: 14px;
+
+  text-transform: uppercase;
+
+  letter-spacing: 2px;
+
+  font-weight: 700;
+}
+
+.stat-value{
+  color: white;
+
+  font-size: 22px;
+
+  font-weight: 800;
+
+  line-height: 1.4;
+}
+.iss-stats{
+  display: grid;
+
+  grid-template-columns:
+    repeat(auto-fit, minmax(220px,1fr));
+
+  gap: 18px;
+
+  margin-top: 35px;
+}
+
+/* վերջին 2 քարտերը մեջտեղ */
+
+/* ========================= */
+/* NEXT LAUNCH CARD */
+/* ========================= */
+
+.launch-content{
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 18px;
+
+  margin-top: 20px;
+}
+
+.launch-name{
+  font-size: 28px;
+
+  font-weight: 800;
+
+  color: #60a5fa;
+
+  line-height: 1.4;
+}
+
+.launch-provider{
+  font-size: 18px;
+
+  color: #d1d5db;
+
+  background: rgba(255,255,255,.05);
+
+  padding: 14px 18px;
+
+  border-radius: 16px;
+
+  border: 1px solid rgba(255,255,255,.08);
+}
+
+.launch-pad{
+  font-size: 17px;
+
+  color: white;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(30,41,59,.9),
+      rgba(17,24,39,.95)
+    );
+
+  padding: 16px 20px;
+
+  border-radius: 18px;
+
+  border:
+    1px solid rgba(59,130,246,.25);
+}
+
+.launch-countdown{
+  font-size: 34px;
+
+  font-weight: 900;
+
+  text-align: center;
+
+  color: #93c5fd;
+
+  padding: 28px 20px;
+
+  border-radius: 24px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(37,99,235,.25),
+      rgba(15,23,42,.95)
+    );
+
+  border:
+    1px solid rgba(96,165,250,.4);
+
+  box-shadow:
+    0 0 30px rgba(59,130,246,.25);
+
+  letter-spacing: 2px;
+}
+
+.label{
+  text-align: center;
+
+  color: #9ca3af;
+
+  font-size: 15px;
+
+  margin-top: 5px;
+}
+
+/* CARD STYLE */
+dov
+.card{
+  background:
+    linear-gradient(
+      145deg,
+      #0f172a,
+      #111827
+    );
+
+  border-radius: 28px;
+
+  padding: 28px;
+
+  border:
+    1px solid rgba(59,130,246,.25);
+
+  box-shadow:
+    0 0 30px rgba(37,99,235,.12);
+
+  transition: .35s;
+}
+
+.card:hover{
+  transform:
+    translateY(-6px);
+
+  box-shadow:
+    0 0 45px rgba(59,130,246,.3);
+}
+
+.card h2{
+  font-size: 32px;
+
+  font-weight: 800;
+
+  color: white;
+
+  margin-bottom: 18px;
+}
+/* ISS LIVE CARD WIDTH */
+
+.iss-feed-wrapper{
+  margin-top: 20px;
+
+  border-radius: 24px;
+
+  overflow: hidden;
+
+  border:
+    1px solid rgba(59,130,246,.3);
+
+  background:
+    linear-gradient(
+      145deg,
+      #0f172a,
+      #111827
+    );
+
+  box-shadow:
+    0 0 35px rgba(37,99,235,.18);
+
+  width: 100%;
+}
+
+/* CARD */
+
+.card{
+  width: 100%;
+
+  max-width: 1200px;
+
+  margin: auto;
+}
+
+/* VIDEO */
+
+.iss-feed-wrapper iframe{
+  width: 100%;
+
+  min-height: 650px;
+
+  border: none;
+
+  display: block;
+}
+/* ========================= */
+/* NASA LOGO */
+/* ========================= */
+
+.logo-box{
+  display: flex;
+
+  align-items: center;
+
+  gap: 16px;
+}
+
+.nasa-logo{
+  width: 90px;
+
+  height: 90px;
+
+  object-fit: contain;
+
+  filter:
+    drop-shadow(0 0 20px rgba(59,130,246,.7));
+
+  animation:
+    nasaSpin 18s linear infinite;
+}
+
+.logo-text{
+  font-size: 42px;
+
+  font-weight: 900;
+
+  letter-spacing: 4px;
+
+  color: white;
+
+  text-shadow:
+    0 0 20px rgba(59,130,246,.6);
+}
+
+/* animation */
+
+@keyframes nasaSpin{
+
+  from{
+    transform: rotate(0deg);
+  }
+
+  to{
+    transform: rotate(360deg);
+  }
+
+}
+.planet-card img{
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin: 15px auto 10px;
+  display: block;
+}
+.planet-popup img{
+  width: 90px;
+  height: 90px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 15px;
+}
+/* ========================= */
+/* PLANET GRID */
+/* ========================= */
+
+.planet-grid{
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(260px,1fr));
+  gap: 28px;
+  margin-top: 30px;
+}
+
+/* ========================= */
+/* PLANET CARD */
+/* ========================= */
+
+.planet-card{
+  position: relative;
+  background: rgba(8,8,20,0.9);
+  border: 1px solid rgba(0,255,120,0.25);
+  border-radius: 28px;
+  padding: 28px 20px;
+  text-align: center;
+  overflow: hidden;
+  transition: 0.35s;
+  box-shadow:
+    0 0 25px rgba(0,255,120,0.08),
+    inset 0 0 30px rgba(255,255,255,0.02);
+}
+
+.planet-card::before{
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at top,
+    rgba(0,255,120,0.12),
+    transparent 60%);
+  pointer-events: none;
+}
+
+.planet-card:hover{
+  transform: translateY(-10px) scale(1.03);
+  border-color: #39ff88;
+  box-shadow:
+    0 0 35px rgba(0,255,120,0.3),
+    0 0 80px rgba(0,255,120,0.1);
+}
+
+/* ========================= */
+/* PLANET IMAGE */
+/* ========================= */
+
+.planet-card img{
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid #39ff88;
+  padding: 3px;
+  background: #000;
+  margin-bottom: 18px;
+  box-shadow:
+    0 0 20px rgba(0,255,120,0.5);
+}
+
+/* ========================= */
+/* CONTENT */
+/* ========================= */
+
+.planet-content h2{
+  color: white;
+  font-size: 2rem;
+  margin-bottom: 12px;
+  font-weight: 800;
+}
+
+.planet-content p{
+  color: #cfcfcf;
+  font-size: 1rem;
+  line-height: 1.6;
+  min-height: 70px;
+}
+
+/* ========================= */
+/* BUTTON */
+/* ========================= */
+
+.planet-btn{
+  margin-top: 18px;
+  padding: 12px 24px;
+  border-radius: 14px;
+  border: 2px solid #39ff88;
+  background: transparent;
+  color: #39ff88;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.planet-btn:hover{
+  background: #39ff88;
+  color: black;
+  box-shadow:
+    0 0 20px rgba(0,255,120,0.6);
+}
+
+/* ========================= */
+/* POPUP OVERLAY */
+/* ========================= */
+
+.planet-popup-overlay{
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.82);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+  animation: fadeIn 0.3s ease;
+}
+
+/* ========================= */
+/* POPUP */
+/* ========================= */
+
+.planet-popup{
+  width: 92%;
+  max-width: 760px;
+  background:
+    linear-gradient(
+      145deg,
+      rgba(10,10,25,0.98),
+      rgba(0,0,0,0.96)
+    );
+  border-radius: 32px;
+  padding: 45px;
+  position: relative;
+  border: 1px solid rgba(0,255,120,0.35);
+  box-shadow:
+    0 0 50px rgba(0,255,120,0.25);
+  text-align: center;
+  animation: popupShow 0.35s ease;
+}
+
+/* ========================= */
+/* POPUP IMAGE */
+/* ========================= */
+
+.planet-popup img{
+  width: 90px;
+  height: 90px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 4px solid #39ff88;
+  padding: 4px;
+  background: black;
+  margin-bottom: 20px;
+  box-shadow:
+    0 0 35px rgba(0,255,120,0.7);
+}
+
+/* ========================= */
+/* POPUP TITLE */
+/* ========================= */
+
+.planet-popup h1{
+  color: #39ff88;
+  font-size: 3rem;
+  margin-bottom: 22px;
+  letter-spacing: 3px;
+}
+
+/* ========================= */
+/* POPUP TEXT */
+/* ========================= */
+
+.planet-popup p{
+  color: #e6e6e6;
+  line-height: 1.9;
+  font-size: 1.08rem;
+  max-height: 420px;
+  overflow-y: auto;
+  padding-right: 10px;
+}
+
+/* ========================= */
+/* CLOSE BUTTON */
+/* ========================= */
+
+.planet-close{
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  border: 2px solid #39ff88;
+  background: transparent;
+  color: #39ff88;
+  font-size: 1.3rem;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.planet-close:hover{
+  background: #39ff88;
+  color: black;
+  transform: rotate(90deg);
+}
+
+/* ========================= */
+/* ANIMATIONS */
+/* ========================= */
+
+@keyframes popupShow{
+  from{
+    transform: scale(0.7);
+    opacity: 0;
+  }
+
+  to{
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn{
+  from{
+    opacity: 0;
+  }
+
+  to{
+    opacity: 1;
+  }
+}
+/* ========================= */
+/* SOLAR SYSTEM CARD */
+/* ========================= */
+
+.solar-system-card {
+  width: 100%;
+  background: rgba(5, 10, 20, 0.95);
+  border: 1px solid rgba(0,255,120,0.2);
+  border-radius: 24px;
+  padding: 30px;
+  margin-top: 30px;
+  box-shadow:
+    0 0 25px rgba(0,255,120,0.15),
+    inset 0 0 30px rgba(0,0,0,0.8);
+  overflow: hidden;
+}
+
+.solar-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.solar-header h1 {
+  font-size: 3rem;
+  color: #44ff66;
+  letter-spacing: 8px;
+  margin-bottom: 10px;
+  text-shadow: 0 0 20px rgba(0,255,120,0.5);
+}
+
+.solar-header p {
+  color: #aaa;
+  font-size: 1rem;
+  max-width: 700px;
+  margin: auto;
+  line-height: 1.7;
+}
+
+/* ========================= */
+/* PLANETS GRID */
+/* ========================= */
+
+.solar-grid {
+  display: grid;
+  grid-template-columns:
+    repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+}
+
+/* ========================= */
+/* PLANET CARD */
+/* ========================= */
+
+.solar-planet-card {
+  background:
+    linear-gradient(
+      180deg,
+      rgba(20,20,35,0.95),
+      rgba(5,5,15,0.95)
+    );
+
+  border:
+    1px solid rgba(0,255,120,0.15);
+
+  border-radius: 22px;
+
+  overflow: hidden;
+
+  transition: 0.35s;
+
+  position: relative;
+
+  box-shadow:
+    0 0 18px rgba(0,255,120,0.08);
+}
+
+.solar-planet-card:hover {
+  transform:
+    translateY(-10px)
+    scale(1.02);
+
+  border-color:
+    rgba(0,255,120,0.5);
+
+  box-shadow:
+    0 0 30px rgba(0,255,120,0.3);
+}
+
+/* ========================= */
+/* IMAGE */
+/* ========================= */
+
+.solar-planet-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+
+  border-bottom:
+    1px solid rgba(255,255,255,0.08);
+}
+
+/* ========================= */
+/* CONTENT */
+/* ========================= */
+
+.solar-planet-content {
+  padding: 20px;
+}
+
+.solar-planet-content h2 {
+  color: white;
+  font-size: 2rem;
+  margin-bottom: 12px;
+  letter-spacing: 2px;
+}
+
+.solar-planet-content p {
+  color: #bbb;
+  line-height: 1.8;
+  font-size: 0.96rem;
+}
+
+/* ========================= */
+/* BUTTON */
+/* ========================= */
+
+.solar-btn {
+  margin-top: 18px;
+  width: 100%;
+  padding: 12px;
+
+  border-radius: 12px;
+
+  border: 1px solid #00ff66;
+
+  background: transparent;
+
+  color: #00ff66;
+
+  font-weight: bold;
+
+  cursor: pointer;
+
+  transition: 0.3s;
+}
+
+.solar-btn:hover {
+  background: #00ff66;
+  color: black;
+  box-shadow:
+    0 0 20px rgba(0,255,120,0.5);
+}
+
+/* ========================= */
+/* POPUP */
+/* ========================= */
+
+.solar-popup-overlay {
+  position: fixed;
+  inset: 0;
+
+  background:
+    rgba(0,0,0,0.82);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  z-index: 999;
+}
+
+.solar-popup {
+  width: 92%;
+  max-width: 850px;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(15,15,30,0.98),
+      rgba(0,0,0,0.98)
+    );
+
+  border:
+    1px solid rgba(0,255,120,0.25);
+
+  border-radius: 25px;
+
+  padding: 35px;
+
+  position: relative;
+
+  box-shadow:
+    0 0 40px rgba(0,255,120,0.25);
+
+  animation:
+    popupAnim 0.35s ease;
+}
+
+@keyframes popupAnim {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* ========================= */
+/* POPUP IMAGE */
+/* ========================= */
+
+.solar-popup img {
+  width: 100%;
+  height: 320px;
+
+  object-fit: cover;
+
+  border-radius: 18px;
+
+  margin-bottom: 20px;
+
+  border:
+    1px solid rgba(255,255,255,0.1);
+}
+
+/* ========================= */
+/* POPUP TEXT */
+/* ========================= */
+
+.solar-popup h1 {
+  color: #44ff66;
+  font-size: 3rem;
+  margin-bottom: 18px;
+  letter-spacing: 3px;
+}
+
+.solar-popup p {
+  color: #ddd;
+  line-height: 2;
+  font-size: 1rem;
+
+  max-height: 320px;
+  overflow-y: auto;
+
+  padding-right: 10px;
+}
+
+/* ========================= */
+/* CLOSE BUTTON */
+/* ========================= */
+
+.solar-close {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+
+  width: 45px;
+  height: 45px;
+
+  border-radius: 50%;
+  border: none;
+
+  background: #00ff66;
+  color: black;
+
+  font-size: 1.2rem;
+  font-weight: bold;
+
+  cursor: pointer;
+
+  transition: 0.3s;
+}
+
+.solar-close:hover {
+  transform: rotate(90deg);
+  box-shadow:
+    0 0 20px rgba(0,255,120,0.7);
+}
+
+/* ========================= */
+/* SCROLLBAR */
+/* ========================= */
+
+.solar-popup p::-webkit-scrollbar {
+  width: 6px;
+}
+
+.solar-popup p::-webkit-scrollbar-thumb {
+  background: #00ff66;
+  border-radius: 10px;
+}
+
+/* ========================= */
+/* MOBILE */
+/* ========================= */
+
+@media (max-width: 700px) {
+
+  .solar-header h1 {
+    font-size: 2rem;
+  }
+
+  .solar-popup img {
+    height: 220px;
+  }
+
+  .solar-popup h1 {
+    font-size: 2rem;
+  }
+
+}
+/* ========================= */
+/* BEAUTIFUL PLANET BOXES */
+/* ========================= */
+
+.solar-grid {
+  display: grid;
+  grid-template-columns:
+    repeat(auto-fit, minmax(280px, 1fr));
+
+  gap: 30px;
+  margin-top: 30px;
+}
+
+/* ========================= */
+/* PLANET CARD */
+/* ========================= */
+
+.solar-planet-card {
+
+  position: relative;
+
+  overflow: hidden;
+
+  border-radius: 28px;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(15,20,35,0.96),
+      rgba(0,0,0,0.96)
+    );
+
+  border:
+    1px solid rgba(0,255,120,0.2);
+
+  box-shadow:
+    0 0 25px rgba(0,255,120,0.08),
+    inset 0 0 25px rgba(255,255,255,0.03);
+
+  transition: 0.45s;
+}
+
+/* GLOW EFFECT */
+
+.solar-planet-card::before {
+
+  content: "";
+
+  position: absolute;
+
+  inset: -2px;
+
+  background:
+    linear-gradient(
+      45deg,
+      transparent,
+      rgba(0,255,120,0.15),
+      transparent
+    );
+
+  opacity: 0;
+
+  transition: 0.5s;
+}
+
+.solar-planet-card:hover::before {
+  opacity: 1;
+}
+
+/* HOVER */
+
+.solar-planet-card:hover {
+
+  transform:
+    translateY(-12px)
+    scale(1.03);
+
+  border-color:
+    rgba(0,255,120,0.55);
+
+  box-shadow:
+    0 0 40px rgba(0,255,120,0.35),
+    0 0 90px rgba(0,255,120,0.12);
+}
+
+/* ========================= */
+/* IMAGE */
+/* ========================= */
+
+.solar-planet-card img {
+
+  width: 100%;
+  height: 230px;
+
+  object-fit: cover;
+
+  transition: 0.5s;
+
+  border-bottom:
+    1px solid rgba(255,255,255,0.06);
+}
+
+.solar-planet-card:hover img {
+  transform: scale(1.08);
+}
+
+/* ========================= */
+/* CONTENT */
+/* ========================= */
+
+.solar-planet-content {
+
+  padding: 24px;
+  text-align: center;
+}
+
+.solar-planet-content h2 {
+
+  color: white;
+
+  font-size: 2rem;
+
+  margin-bottom: 14px;
+
+  letter-spacing: 3px;
+
+  text-shadow:
+    0 0 10px rgba(255,255,255,0.2);
+}
+
+.solar-planet-content p {
+
+  color: #bdbdbd;
+
+  line-height: 1.8;
+
+  font-size: 0.97rem;
+
+  min-height: 70px;
+}
+
+/* ========================= */
+/* BUTTON */
+/* ========================= */
+
+.solar-btn {
+
+  margin-top: 18px;
+
+  width: 100%;
+
+  padding: 14px;
+
+  border-radius: 16px;
+
+  border:
+    1px solid #00ff66;
+
+  background:
+    rgba(0,255,120,0.06);
+
+  color: #00ff66;
+
+  font-size: 1rem;
+
+  font-weight: bold;
+
+  letter-spacing: 1px;
+
+  cursor: pointer;
+
+  transition: 0.35s;
+}
+
+.solar-btn:hover {
+
+  background: #00ff66;
+
+  color: black;
+
+  transform: scale(1.04);
+
+  box-shadow:
+    0 0 25px rgba(0,255,120,0.6);
+}
+
+/* ========================= */
+/* MOBILE */
+/* ========================= */
+
+@media (max-width: 700px) {
+
+  .solar-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .solar-planet-card img {
+    height: 200px;
+  }
+
+}
+.astronaut-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 12px;
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  align-items: stretch;
+  padding: 10px;
+}
+
+/* CARD */
+.card {
+  background: #0b0f1a;
+  border-radius: 16px;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  color: white;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+  transition: transform 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+/* IMAGE */
+.card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 10px;
+}
+
+/* TITLE */
+.card h2 {
+  font-size: 18px;
+  margin: 10px 0 5px;
+}
+
+/* TEXT */
+.card p {
+  font-size: 14px;
+  opacity: 0.8;
+  margin-bottom: 10px;
+}
+
+/* BUTTON */
+.card button {
+  margin-top: auto;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 8px;
+  background: #1e90ff;
+  color: white;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.card button:hover {
+  background: #0d6efd;
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 30px;
+  align-items: stretch;
+  padding: 20px;
+}
+.card {
+  padding: 20px;
+  border-radius: 18px;
+  min-height: 320px;
+}
+.grid {
+  gap: 30px;
+}
+.innnn {
+  padding: 200px;
+  margin: 100px;
+  background: #0b0f1a;
+  border-radius: 12px;
+}
+.astronaut-card {
+  background: linear-gradient(145deg, #0b0f1a, #111827);
+  border: 1px solid rgba(97, 255, 79, 0.2);
+  border-radius: 22px;
+  padding: 20px;
+  text-align: center;
+  transition: 0.3s;
+  box-shadow: 0 0 20px rgba(97, 255, 79, 0.08);
+}
+
+.astronaut-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 0 35px rgba(97, 255, 79, 0.25);
+}
+
+/* IMAGE */
+.astronaut-card img {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #39ff88;
+  margin-bottom: 15px;
+}
+
+/* NAME */
+.astronaut-card h2 {
+  color: white;
+  font-size: 1.2rem;
+  margin-bottom: 8px;
+}
+
+/* TEXT */
+.astronaut-card p {
+  color: #aaa;
+  font-size: 0.95rem;
+  margin-bottom: 12px;
+}
+
+/* BUTTON */
+.astronaut-card button {
+  padding: 10px 14px;
+  border-radius: 12px;
+  border: 1px solid #39ff88;
+  background: transparent;
+  color: #39ff88;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.astronaut-card button:hover {
+  background: #39ff88;
+  color: black;
+}
+.astronaut-card img {
+  loading: lazy;
+}
