@@ -1753,7 +1753,7 @@ iframe {
 }
 
 /* CARD STYLE */
-dov
+
 .card{
   background:
     linear-gradient(
@@ -2739,67 +2739,4 @@ dov
 }
 .grid {
   gap: 30px;
-}
-.innnn {
-  padding: 200px;
-  margin: 100px;
-  background: #0b0f1a;
-  border-radius: 12px;
-}
-.astronaut-card {
-  background: linear-gradient(145deg, #0b0f1a, #111827);
-  border: 1px solid rgba(97, 255, 79, 0.2);
-  border-radius: 22px;
-  padding: 20px;
-  text-align: center;
-  transition: 0.3s;
-  box-shadow: 0 0 20px rgba(97, 255, 79, 0.08);
-}
-
-.astronaut-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 0 35px rgba(97, 255, 79, 0.25);
-}
-
-/* IMAGE */
-.astronaut-card img {
-  width: 90px;
-  height: 90px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 3px solid #39ff88;
-  margin-bottom: 15px;
-}
-
-/* NAME */
-.astronaut-card h2 {
-  color: white;
-  font-size: 1.2rem;
-  margin-bottom: 8px;
-}
-
-/* TEXT */
-.astronaut-card p {
-  color: #aaa;
-  font-size: 0.95rem;
-  margin-bottom: 12px;
-}
-
-/* BUTTON */
-.astronaut-card button {
-  padding: 10px 14px;
-  border-radius: 12px;
-  border: 1px solid #39ff88;
-  background: transparent;
-  color: #39ff88;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-.astronaut-card button:hover {
-  background: #39ff88;
-  color: black;
-}
-.astronaut-card img {
-  loading: lazy;
 }
