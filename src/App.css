@@ -487,6 +487,353 @@ iframe {
   border-radius: 22px;
 }
 
+.space-card {
+  background: linear-gradient(
+    145deg,
+    rgba(10,15,25,0.96),
+    rgba(5,8,15,0.96)
+  );
+
+  border: 1px solid rgba(0,255,120,0.15);
+
+  border-radius: 28px;
+
+  padding: 28px;
+
+  box-shadow:
+    0 0 30px rgba(0,255,120,0.08);
+
+  overflow: hidden;
+}
+
+/* HEADER */
+
+.card-header {
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  margin-bottom: 25px;
+}
+
+.header-title {
+  display: flex;
+
+  align-items: center;
+
+  gap: 14px;
+
+  color: #39ff88;
+
+  font-weight: 700;
+
+  letter-spacing: 2px;
+}
+
+.card-icon {
+  width: 24px;
+  height: 24px;
+}
+
+.counter-badge {
+  background: rgba(0,255,120,0.12);
+
+  border: 1px solid rgba(0,255,120,0.25);
+
+  color: #39ff88;
+
+  padding: 8px 14px;
+
+  border-radius: 999px;
+
+  font-size: 0.8rem;
+
+  font-weight: bold;
+}
+
+/* LIST */
+
+.list-container {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 14px;
+}
+
+/* ROW */
+
+.list-row {
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  padding: 18px 20px;
+
+  border-radius: 18px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255,255,255,0.03),
+      rgba(255,255,255,0.01)
+    );
+
+  border:
+    1px solid rgba(255,255,255,0.05);
+
+  transition: 0.3s;
+}
+
+.list-row-hover:hover {
+  transform: translateY(-4px);
+
+  border-color: rgba(0,255,120,0.35);
+
+  box-shadow:
+    0 0 25px rgba(0,255,120,0.12);
+}
+
+/* LEFT */
+
+.row-left {
+  display: flex;
+
+  align-items: center;
+
+  gap: 16px;
+}
+
+/* INDEX */
+
+.index-num {
+  color: #39ff88;
+
+  font-size: 0.8rem;
+
+  font-weight: bold;
+
+  background: rgba(0,255,120,0.08);
+
+  width: 34px;
+
+  height: 34px;
+
+  border-radius: 50%;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+}
+
+/* TEXT */
+
+.main-text {
+  color: white;
+
+  font-size: 1rem;
+
+  font-weight: 600;
+}
+
+/* STATION */
+
+.station-pill {
+  padding: 10px 16px;
+
+  border-radius: 999px;
+
+  background: rgba(0,255,120,0.1);
+
+  border: 1px solid rgba(0,255,120,0.2);
+
+  color: #39ff88;
+
+  font-size: 0.8rem;
+
+  font-weight: bold;
+
+  text-transform: uppercase;
+}
+
+/* ========================= */
+/* MODAL */
+/* ========================= */
+
+.modal-overlay {
+  position: fixed;
+
+  inset: 0;
+
+  background: rgba(0,0,0,0.82);
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  z-index: 9999;
+
+  backdrop-filter: blur(8px);
+
+  padding: 20px;
+}
+
+.modal-content {
+  width: 100%;
+
+  max-width: 750px;
+
+  animation: popupShow 0.35s ease;
+}
+
+/* DETAILS */
+
+.person-details {
+  margin-top: 20px;
+}
+
+/* DETAIL ROW */
+
+.detail-row {
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  padding: 18px;
+
+  border-radius: 18px;
+
+  background: rgba(255,255,255,0.03);
+
+  border: 1px solid rgba(255,255,255,0.05);
+}
+
+/* BIO */
+
+.bio-container {
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255,255,255,0.03),
+      rgba(255,255,255,0.01)
+    );
+
+  border:
+    1px solid rgba(255,255,255,0.05);
+
+  border-radius: 20px;
+
+  padding: 22px;
+}
+
+.bio-text {
+  color: #cfcfcf;
+
+  line-height: 1.9;
+
+  margin-top: 14px;
+
+  font-size: 0.96rem;
+
+  max-height: 300px;
+
+  overflow-y: auto;
+}
+
+/* CLOSE BUTTON */
+
+.close-btn {
+  width: 42px;
+
+  height: 42px;
+
+  border-radius: 50%;
+
+  border: none;
+
+  background: rgba(255,255,255,0.05);
+
+  color: #aaa;
+
+  cursor: pointer;
+
+  transition: 0.3s;
+}
+
+.close-btn:hover {
+  background: #39ff88;
+
+  color: black;
+
+  transform: rotate(90deg);
+}
+
+/* ========================= */
+/* ANIMATION */
+/* ========================= */
+
+@keyframes popupShow {
+
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* ========================= */
+/* MOBILE */
+/* ========================= */
+
+@media (max-width: 600px) {
+
+  .space-card {
+    padding: 18px;
+  }
+
+  .list-row {
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    gap: 14px;
+  }
+
+  .row-left {
+    width: 100%;
+  }
+
+  .main-text {
+    font-size: 0.95rem;
+  }
+
+  .modal-content {
+    padding: 18px;
+  }
+
+  .bio-text {
+    font-size: 0.9rem;
+  }
+
+  .header-title {
+    font-size: 0.8rem;
+  }
+
+}
 /* ========================= */
 /* MOBILE */
 /* ========================= */

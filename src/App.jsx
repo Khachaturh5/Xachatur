@@ -90,7 +90,7 @@ export default function App() {
 
               <ISSLiveFeed />
 
-
+<PeopleInSpace />
             </div>
 
           </section>
@@ -1285,4 +1285,115 @@ function SolarSystemCard() {
 
   )
 
+}
+function PeopleInSpace() {
+  const [people, setPeople] = useState(null);
+  const [selectedPerson, setSelectedPerson] = useState(null);
+  
+  // ՆՈՐ STATE-ԵՐ Վիքիպեդիայի տվյալների համար
+  const [bio, setBio] = useState('');
+  const [isBioLoading, setIsBioLoading] = useState(false);
+
+  // Հիմնական տիեզերագնացների ցանկի բեռնում
+  useEffect(() => {
+    fetch('http://api.open-notify.org/astros.json')
+      .then(r => r.json())
+      .then(data => setPeople(data.people));
+  }, []);
+
+  // ՆՈՐ EFFECT: Երբ selectedPerson-ը փոխվում է (մարդու վրա սեղմելիս), բեռնում ենք կենսագրությունը
+  useEffect(() => {
+    if (selectedPerson) {
+      setIsBioLoading(true);
+      setBio(''); // Մաքրել հին կենսագրությունը
+      
+      // Սարքում ենք անունը API-ի համար հասկանալի ֆորմատով
+      const wikiName = encodeURIComponent(selectedPerson.name);
+      
+      fetch(`https://en.wikipedia.org/api/rest_v1/page/summary/${wikiName}`)
+        .then(res => res.json())
+        .then(data => {
+          if (data.extract) {
+            setBio(data.extract);
+          } else {
+            setBio("Ցավոք, Վիքիպեդիայում այս տիեզերագնացի մասին հակիրճ տեղեկություն չգտնվեց։");
+          }
+          setIsBioLoading(false);
+        })
+        .catch(() => {
+          setBio("Տեղեկությունը բեռնելիս սխալ առաջացավ։");
+          setIsBioLoading(false);
+        });
+    }
+  }, [selectedPerson]);
+
+  return (
+    <div className="space-card glass-card">
+      <div className="card-header">
+        <div className="header-title">
+          <svg className="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+          </svg>
+          <span>ASTRONAUTS IN ORBIT</span>
+        </div>
+        {people && <span className="counter-badge">{people.length} CREW</span>}
+      </div>
+
+      {people ? (
+        <div className="list-container">
+          {people.map((person, index) => (
+            <div 
+              key={person.name} 
+              className="list-row list-row-hover"
+              onClick={() => setSelectedPerson(person)}
+              style={{ cursor: 'pointer' }}
+            >
+              <div className="row-left">
+                <span className="index-num">{(index + 1).toString().padStart(2, '0')}</span>
+                <span className="main-text">{person.name}</span>
+              </div>
+              <span className="station-pill">{person.craft}</span>
+            </div>
+          ))}
+        </div>
+      ) : (
+        <div style={{ height: '150px', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--text-muted)' }}>
+          Բեռնվում է...
+        </div>
+      )}
+
+      {/* ՄՈԴԱԼ ՊԱՏՈՒՀԱՆ */}
+      {selectedPerson && (
+        <div className="modal-overlay" onClick={() => setSelectedPerson(null)}>
+          <div className="space-card glass-card modal-content" onClick={(e) => e.stopPropagation()}>
+            <div className="card-header" style={{ marginBottom: 0 }}>
+              <div className="header-title">
+                <span className="main-text" style={{ fontSize: '1.1rem', color: '#fff' }}>
+                  {selectedPerson.name}
+                </span>
+              </div>
+              <button className="close-btn" onClick={() => setSelectedPerson(null)}>✕</button>
+            </div>
+            
+            <div className="person-details" style={{ marginTop: '1rem', display: 'flex', flexDirection: 'column', gap: '0.8rem' }}>
+              <div className="detail-row" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '0.8rem', background: 'rgba(255,255,255,0.02)', borderRadius: '12px' }}>
+                <span style={{ color: 'var(--text-muted)', fontSize: '0.8rem' }}>Տիեզերակայան՝</span>
+                <span className="station-pill">{selectedPerson.craft}</span>
+              </div>
+
+              {/* ԿԵՆՍԱԳՐՈՒԹՅԱՆ ՀԱՏՎԱԾ */}
+              <div className="bio-container">
+                <span style={{ color: '#fff', fontSize: '0.9rem', fontWeight: 'bold' }}>Կենսագրություն (Վիքիպեդիայից)</span>
+                {isBioLoading ? (
+                  <p className="bio-text" style={{ fontStyle: 'italic' }}>Փնտրվում է...</p>
+                ) : (
+                  <p className="bio-text">{bio}</p>
+                )}
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+    </div>
+  );
 }
