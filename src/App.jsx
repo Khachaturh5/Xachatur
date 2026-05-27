@@ -123,6 +123,7 @@ export default function App() {
             <h1 className="main-title">
               ASTRONAUTS
             </h1>
+            <PeopleInSpace222 />
  <PeopleInSpace22 />
 
           </section>
@@ -1396,4 +1397,186 @@ function PeopleInSpace() {
       )}
     </div>
   );
+}
+function PeopleInSpace222() {
+
+  const [people, setPeople] =
+    useState([])
+
+  const [selectedPerson, setSelectedPerson] =
+    useState(null)
+
+  const [bio, setBio] =
+    useState("")
+
+  const [loadingBio, setLoadingBio] =
+    useState(false)
+
+  useEffect(() => {
+
+    fetch('http://api.open-notify.org/astros.json')
+      .then(r => r.json())
+      .then(data =>
+        setPeople(data.people)
+      )
+      .catch(err =>
+        console.log(err)
+      )
+
+  }, [])
+
+  useEffect(() => {
+
+    if (!selectedPerson) return
+
+    setLoadingBio(true)
+
+    const wikiName =
+      encodeURIComponent(
+        selectedPerson.name
+      )
+
+    fetch(
+      `https://en.wikipedia.org/api/rest_v1/page/summary/${wikiName}`
+    )
+      .then(r => r.json())
+      .then(data => {
+
+        setBio(
+          data.extract ||
+          "No biography found."
+        )
+
+        setLoadingBio(false)
+
+      })
+      .catch(() => {
+
+        setBio(
+          "Error loading biography."
+        )
+
+        setLoadingBio(false)
+
+      })
+
+  }, [selectedPerson])
+
+  return (
+
+    <>
+
+      <div className="astronaut-grid">
+
+        {people.map(person => (
+
+          <div
+            key={person.name}
+            className="astronaut-card"
+          >
+
+            <div className="astronaut-avatar">
+              🧑‍🚀
+            </div>
+
+            <h2>
+              {person.name}
+            </h2>
+
+            <p>
+              {person.craft}
+            </p>
+
+            <button
+              className="astro-btn"
+              onClick={() =>
+                setSelectedPerson(person)
+              }
+            >
+              More Info
+            </button>
+
+          </div>
+
+        ))}
+
+      </div>
+
+      {selectedPerson && (
+
+        <div
+          className="astro-screen"
+          onClick={() =>
+            setSelectedPerson(null)
+          }
+        >
+
+          <div
+            className="astro-screen-card"
+            onClick={(e) =>
+              e.stopPropagation()
+            }
+          >
+
+            <button
+              className="close-btn"
+              onClick={() =>
+                setSelectedPerson(null)
+              }
+            >
+              ✕
+            </button>
+
+            <div className="screen-avatar">
+              🧑‍🚀
+            </div>
+
+            <h1>
+              {selectedPerson.name}
+            </h1>
+
+            <div className="screen-box">
+
+              <span>
+                Spacecraft
+              </span>
+
+              <strong>
+                {selectedPerson.craft}
+              </strong>
+
+            </div>
+
+            <div className="screen-bio">
+
+              <h3>
+                Biography
+              </h3>
+
+              {loadingBio ? (
+
+                <p>
+                  Loading biography...
+                </p>
+
+              ) : (
+
+                <p>
+                  {bio}
+                </p>
+
+              )}
+
+            </div>
+
+          </div>
+
+        </div>
+
+      )}
+
+    </>
+
+  )
+
 }
