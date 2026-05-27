@@ -66,12 +66,11 @@ export default function App() {
               the ISS station and the Solar System.
             </p>
 
-            <div className="grid">
+            <div className="grid">  
 
               <ISSTracker2 />
               <div></div>
               <APOD />
-
    
 
 
@@ -90,7 +89,7 @@ export default function App() {
 
               <ISSLiveFeed />
 
-<PeopleInSpace />
+              <PeopleInSpace />
             </div>
 
           </section>
